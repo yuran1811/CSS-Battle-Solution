@@ -1,0 +1,43 @@
+<style>
+	.container {
+		background: #6592cf;
+		width: 400;
+		height: 300;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.item {
+		background: #243d83;
+		position: fixed;
+		top: 67;
+		left: 42;
+		width: 300;
+		height: 150;
+	}
+	.item:after {
+		content: '';
+		position: absolute;
+		background: #eeb850;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 50;
+		height: 50;
+		border-radius: 50%;
+	}
+	.item:before {
+		content: '';
+		position: absolute;
+		border: 50px solid #6592cf;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 150;
+		height: 150;
+		border-radius: 50%;
+	}
+</style>
+<div class="container">
+	<div class="item"></div>
+</div>

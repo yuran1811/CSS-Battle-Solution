@@ -1,43 +1,38 @@
+<div class="container">
+	<div class="item">
 <style>
 	.container {
 		background: #6592cf;
-		width: 400;
-		height: 300;
 		position: fixed;
-		top: 0;
+		height: 300;
+		width: 400;
 		left: 0;
+		top: 0
 	}
 	.item {
 		background: #243d83;
 		position: fixed;
-		top: 67;
-		left: 42;
-		width: 300;
 		height: 150;
+		width: 300;
+		left: 42;
+		top: 67
 	}
+	.item:before,
 	.item:after {
 		content: '';
 		position: absolute;
-		background: #eeb850;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 50;
-		height: 50;
 		border-radius: 50%;
+		transform: translate(-50%, -50%)
+	}
+	.item:after {
+		background: #eeb850;
+		height: 50;
+		width: 50
 	}
 	.item:before {
-		content: '';
-		position: absolute;
 		border: 50px solid #6592cf;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 150;
 		height: 150;
-		border-radius: 50%;
+		width: 150
 	}
-</style>
-<div class="container">
-	<div class="item"></div>
-</div>

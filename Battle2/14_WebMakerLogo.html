@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="item">
+		<div class="item2">
+<style>
+	* {
+		margin: 0
+	}
+	.container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 400;
+		height: 300;
+		background: #f2f2b6;
+
+	}
+	.item,
+	.item2 {
+		width: 400;
+		height: 85;
+		position: fixed;
+		background: #f2f2b6;
+		box-shadow: 0 215px 0 0 #f2f2b6;
+		z-index: 10
+	}
+	.item:after,
+	.item:before {
+		content: '';
+		position: fixed;
+		top: 85;
+		width: 182;
+		height: 182;
+		z-index: -1
+	}
+	.item:after,
+	.item:before {
+		left: 61;
+		background: #ff6d00;
+		box-shadow: 25px 25px 0 0 #fd4602;
+		transform: translate(-17px, -89px) rotateY(55deg) rotateZ(-45deg)
+	}
+	.item:before {
+		right: 61;
+		background: #fd4602;
+		box-shadow: 25px 25px 0 0 #ff6d00;
+		transform: translate(93px, 37px) rotateY(55deg) rotateZ(-45deg)
+	}

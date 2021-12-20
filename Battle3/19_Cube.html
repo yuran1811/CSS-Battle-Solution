@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="item">
+<style>
+	* {
+		box-sizing: border-box
+	}
+	.container {
+		background: #0b2429;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		margin: 0;
+		width: 400;
+		height: 300;
+	}
+	.item {
+		position: fixed;
+		background: #f3ac3c;
+		width: 100;
+		height: 100;
+		transform: rotateZ(45deg);
+		bottom: 65;
+		left: 150;
+	}
+	.item:after,
+	.item:before {
+		content: '';
+		position: fixed;
+	}
+	.item:after {
+		background: #1a4341;
+		transform: skewX(45deg);
+		width: 100;
+		height: 50;
+		bottom: 100;
+		right: 25;
+	}
+	.item:before {
+		background: #998235;
+		transform: skewY(45deg);
+		width: 50;
+		height: 100;
+		bottom: 25;
+		right: 99.8;
+	}

@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="item">
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+	}
+	.container {
+		background: #62306d;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 400;
+		height: 300;
+	}
+	.item {
+		position: absolute;
+		background: #f7ec7d;
+		width: 140;
+		height: 100;
+		bottom: 100;
+		left: 100;
+		box-shadow: 60px 0 0 0 #e38f66;
+	}
+	.item:after,
+	.item:before {
+		content: '';
+		position: absolute;
+		background: #62306d;
+	}
+	.item:after {
+		background: #62306d;
+		width: 20;
+		height: 20;
+		top: -10;
+		right: -10;
+		border-radius: 50%;
+		box-shadow: 0 100px 0 0 #62306d;
+	}
+	.item:before {
+		background: #62306d;
+		width: 40;
+		height: 40;
+		bottom: 80;
+		left: -20;
+		border-radius: 50%;
+		box-shadow:
+			0 100px 0 0 #62306d,
+			200px 0 0 0 #62306d,
+			200px 100px 0 0 #62306d;
+	}

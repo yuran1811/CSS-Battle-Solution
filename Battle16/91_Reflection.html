@@ -1,0 +1,39 @@
+<!-- Other solution from top 1
+<p>.<p>.<p>.<p>.
+<style>
+	* {
+		margin:75 0 -65;
+		background:radial-gradient(1q, #F6DF96 106q, #D25B70 0 775em, #6CB3A9) fixed;
+		font:9%/5vh'
+-->
+<div>
+<style>
+	div {
+		background: #d25b70;
+		position: fixed;
+		height: 150;
+		width: 400;
+		left: 0;
+		top: 0;
+		box-shadow: 0 150px #6cb3a9;
+	}
+	div:before {
+		content: '';
+		position: fixed;
+		width: 200;
+		height: 200;
+		border-radius: 50%;
+		background: #f6df96;
+		top: 50;
+		left: 100;
+	}
+	div:after {
+		content: '';
+		position: fixed;
+		width: 200;
+		height: 15;
+		background: #6cb3a9;
+		left: 100;
+		top: 150;
+		box-shadow: 0 25px #6cb3a9, 0 50px #6cb3a9, 0 75px #6cb3a9;
+	}

@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="item">
+		<div class="item2">
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+	}
+	.container {
+		background: #6592cf;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 400;
+		height: 300;
+	}
+	.item {
+		position: absolute;
+		bottom: 40;
+		left: 140;
+		width: 120;
+		height: 120;
+	}
+	.item,
+	.item:after,
+	.item:before {
+		border: 20px solid #060f55;
+		border-radius: 50%;
+	}
+	.item:after,
+	.item:before {
+		content: '';
+		position: absolute;
+		top: -120;
+		width: 80;
+		height: 80;
+	}
+	.item:after {
+		left: -120;
+	}
+	.item:before {
+		right: -120;
+	}
+
+	.item2 {
+		background: #6592cf;
+		position: absolute;
+		height: 100;
+		width: 400;
+		left: -200;
+		top: -60;
+		z-index: 1;
+	}

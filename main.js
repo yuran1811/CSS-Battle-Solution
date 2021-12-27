@@ -2,14 +2,14 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 // Swiper Generator
-const mySwiper = new Swiper('.main > .swiper-container', {
-	direction: 'horizontal',
-	centeredSlides: false,
-	slidesPerView: 6,
-	spaceBetween: 40,
-	threshold: 5,
-	speed: 800,
-});
+// new Swiper('.main > .swiper-container', {
+// 	direction: 'horizontal',
+// 	centeredSlides: false,
+// 	slidesPerView: 6,
+// 	spaceBetween: 40,
+// 	threshold: 5,
+// 	speed: 800,
+// });
 
 // Main Handle
 const contentData = {
@@ -198,16 +198,19 @@ const getContentHTML = () => {
 	for (let battle in contentData) {
 		const battleCardsHTML = contentData[battle].map(
 			(item) => `
-				<div class="card">
+				<div class="card" data-aos="fade-up">
 					<div class="card__image">
-						<div class="front">
-							<a href="${item.src}" target="_blank" rel="noopener">
+						<div class="container">
+							<div class="front">
 								<img src="${item.imgSrc}" alt="card image">
-							</a>
-						</div>
-						<div class="back">
-							<div class="info">
-								<span>${item.id}</span>
+							</div>
+							<div class="back">
+								<div class="info">
+									<div>#${item.id} - ${item.name}</div>
+									<div>
+										<a href="${item.src}" target="_blank" rel="noopener">Preview</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

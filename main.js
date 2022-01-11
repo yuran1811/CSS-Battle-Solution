@@ -191,17 +191,122 @@ const contentData = {
 };
 const contentDataLth = contentData.length;
 
+const howtoData = [
+	'',
+	'',
+	'Carrom Guide',
+	'Push Button Guide',
+	'Ups and Downs Guide',
+	'Acid Rain Guide',
+	'Missing Slice Guide',
+	'Leafy Trail Guide',
+	'Forking Crazy Guide',
+	'Tesseract Guide',
+	'',
+	'',
+	'',
+	'Totally Triangle Guide',
+	'Web Maker Logo Guide',
+	'Overlap Guide',
+	'Eye of the Tiger Guide',
+	'Fidget Spinner Guide',
+	'Matrix Guide',
+	'Cube Guide',
+	'Ticket Guide',
+	'Site Point Logo Guide',
+	'Cloud Guide',
+	'Boxception Guide',
+	'Switches Guide',
+	'Blossom Guide',
+	'Smiley Guide',
+	'Lock Up Guide',
+	'Cups and Balls Guide',
+	'Suffocate Guide',
+	'Horizon Guide',
+	'31',
+	'32',
+	'33',
+	'34',
+	'35',
+	'36',
+	'37',
+	'38',
+	'39',
+	'40',
+	'41',
+	'42',
+	'43',
+	'44',
+	'45',
+	'46',
+	'47',
+	'48',
+	'49',
+	'50',
+	'51',
+	'52',
+	'53',
+	'54',
+	'55',
+	'56',
+	'57',
+	'58',
+	'59',
+	'60',
+	'61',
+	'62',
+	'63',
+	'64',
+	'65',
+	'66',
+	'67',
+	'68',
+	'69',
+	'70',
+	'71',
+	'72',
+	'73',
+	'74',
+	'75',
+	'76',
+	'77',
+	'78',
+	'79',
+	'80',
+	'81',
+	'82',
+	'83',
+	'84',
+	'85',
+	'86',
+	'87',
+	'88',
+	'89',
+	'90',
+	'91',
+	'92',
+	'93',
+	'94',
+	'95',
+	'96',
+	'97',
+	'98',
+	'99',
+	'100',
+];
+
 const navBar = $('.nav-bar');
 const content = $('.main .content');
 const menuBtn = $('.menu-container');
 const battleList = $$('.nav-bar .item');
+const modalBox = $('.modal-box');
 
 const getContentHTML = () => {
 	let contentArr = [];
 	for (let battle in contentData) {
 		const battleCardsHTML = contentData[battle].map(
 			(item) => `
-				<div class="card" data-aos="fade-up">
+				<div class="card" data-aos="fade-up" data-id="${item.id}">
 					<div class="card__image">
 						<div class="container">
 							<div class="front">
@@ -263,6 +368,14 @@ battleList.forEach((item, index) => {
 		}
 
 		content.innerHTML = listContentHTML[index];
+		$$('.howto').forEach((item) => {
+			item.onclick = (e) => {
+				e.stopPropagation();
+				modalBox.classList.add('active');
+				modalBox.innerHTML =
+					howtoData[e.target.closest('.card').dataset.id];
+			};
+		});
 	};
 });
 
@@ -273,6 +386,9 @@ menuBtn.onclick = (e) => {
 };
 
 document.body.onclick = () => {
+	modalBox.classList.remove('active');
 	menuBtn.classList.remove('active');
 	navBar.classList.remove('active');
 };
+
+modalBox.onclick = (e) => e.stopPropagation();

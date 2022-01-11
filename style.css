@@ -362,3 +362,17 @@ ul {
 .onHide {
 	display: none;
 }
+
+.modal-box {
+	display: none;
+	position: fixed;
+	inset: 30px 100px;
+	font-size: 24px;
+	padding: 10px;
+	z-index: 100;
+	background-color: aliceblue;
+	color: black;
+}
+.modal-box.active {
+	display: block;
+}

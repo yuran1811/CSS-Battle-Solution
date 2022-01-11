@@ -1,3 +1,5 @@
+const modalBoxCpn = `<div class="modal-box"></div>`;
+
 const headerCpn = `
 	<div class="header">
 		<div class="left">
@@ -102,4 +104,4 @@ const navCpn = `
 	</div>`;
 
 const bodyContent = document.body.innerHTML;
-document.body.innerHTML = `${headerCpn} ${navCpn} ${document.body.innerHTML}`;
+document.body.innerHTML = `${modalBoxCpn} ${headerCpn} ${navCpn} ${document.body.innerHTML}`;

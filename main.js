@@ -1,16 +1,6 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-// Swiper Generator
-// new Swiper('.main > .swiper-container', {
-// 	direction: 'horizontal',
-// 	centeredSlides: false,
-// 	slidesPerView: 6,
-// 	spaceBetween: 40,
-// 	threshold: 5,
-// 	speed: 800,
-// });
-
 // Main Handle
 const contentData = {
 	battle1: [
@@ -165,7 +155,20 @@ const contentData = {
 			imgSrc: 'src/cupandball.PNG',
 		},
 	],
-	battle5: [],
+	battle5: [
+		{
+			id: 29,
+			name: 'Suffocate',
+			src: 'Battle5/29_Suffocate.html',
+			imgSrc: 'src/suffocate.PNG',
+		},
+		{
+			id: 30,
+			name: 'Horizon',
+			src: 'Battle5/30_Horizon.html',
+			imgSrc: 'src/horizon.PNG',
+		},
+	],
 	battle6: [],
 	battle7: [],
 	battle8: [],
@@ -207,7 +210,7 @@ const getContentHTML = () => {
 							<div class="back">
 								<div class="info">
 									<div>#${item.id} - ${item.name}</div>
-									<div>
+									<div class="preview">
 										<a href="${item.src}" target="_blank" rel="noopener">Preview</a>
 									</div>
 								</div>
@@ -231,9 +234,10 @@ const getContentHTML = () => {
 					</div>
 				</div>`
 		);
+		const index = +battle.replace('battle', '') - 1;
 		const battleSectionHTML = `
 			<section class="${battle}">
-				<h2 class="title">${battle}</h2>
+				<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
 				<div class="container">
 					${battleCardsHTML.join('')}
 				</div>
@@ -246,6 +250,7 @@ const listContentHTML = getContentHTML();
 
 battleList.forEach((item, index) => {
 	item.onclick = (e) => {
+		e.stopPropagation();
 		const lastActive = $('.nav-bar .active');
 		if (lastActive)
 			lastActive.className = lastActive.className.replace(' active', '');
@@ -261,7 +266,13 @@ battleList.forEach((item, index) => {
 	};
 });
 
-menuBtn.onclick = () => {
+menuBtn.onclick = (e) => {
+	e.stopPropagation();
 	menuBtn.classList.toggle('active');
 	navBar.classList.toggle('active');
+};
+
+document.body.onclick = () => {
+	menuBtn.classList.remove('active');
+	navBar.classList.remove('active');
 };

@@ -294,7 +294,34 @@ ul {
 
 .main .content > section > .container > .card .info {
 	position: relative;
-	height: 340px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.main .content > section > .container > .card .info .preview {
+	font-weight: bold;
+	position: relative;
+	transition: all 0.3s ease-out;
+}
+.main .content > section > .container > .card .info .preview::after {
+	background-color: rgb(18, 26, 102);
+	position: absolute;
+	content: '';
+	height: 7px;
+	left: 0;
+	right: 0;
+	bottom: -10px;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: all 0.3s ease-out;
+}
+.main .content > section > .container > .card .info .preview:hover:after {
+	transform: scaleX(1);
+}
+.main .content > section > .container > .card .info .preview:hover {
+	color: rgb(18, 26, 102);
 }
 
 .main .content > section > .container > .card .howto {

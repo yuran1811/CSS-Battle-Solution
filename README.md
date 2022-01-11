@@ -36,6 +36,11 @@
 -   [x] [**Lock Up**](Battle4/27_LockUp.html)
 -   [x] [**Cups and Balls**](Battle4/28_CupsAndBalls.html)
 
+### Battle 5
+
+-   [x] [**Suffocate**](Battle5/29_Suffocate.html)
+-   [x] [**Horizone**](Battle5/30_Horizone.html)
+
 ### Battle 16
 
 -   [x] [**Reflection**](Battle16/91_Reflection.html)

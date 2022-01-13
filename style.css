@@ -364,15 +364,31 @@ ul {
 }
 
 .modal-box {
-	display: none;
 	position: fixed;
-	inset: 30px 100px;
+	inset: 30px 400px;
 	font-size: 24px;
 	padding: 10px;
 	z-index: 100;
-	background-color: aliceblue;
+	opacity: 0;
 	color: black;
+	user-select: text;
+	border-radius: 20px;
+	transform: scale(0);
+	overflow: hidden auto;
+	transition: all 0.2s ease;
+	background-color: aliceblue;
 }
 .modal-box.active {
-	display: block;
+	opacity: 1;
+	transform: scale(1);
+}
+
+@media screen and (max-width: 780px) {
+	.header .title {
+		font-size: 6vmin;
+		width: calc(40vmin + 100px);
+	}
+	.main .nav-bar {
+		width: 100%;
+	}
 }

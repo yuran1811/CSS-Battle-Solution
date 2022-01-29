@@ -301,6 +301,30 @@ const menuBtn = $('.menu-container');
 const battleList = $$('.nav-bar .item');
 const modalBox = $('.modal-box');
 
+const renderHome = () => {
+	content.innerHTML = `
+		<div class="battle-info">
+		${battles
+			.map(
+				(item, index) => `
+				<div
+					class="battle-info-item"
+					data-aos="zoom-out"
+					data-aos-duration="600"
+				>
+					<span class="name"> #${index + 1} - ${item.name}</span>
+					<p class="desc">There are total ${item.target} targets</p>
+				</div>`
+			)
+			.join('')}
+		</div>`;
+	$$('.battle-info-item').forEach(
+		(item, index) =>
+			(item.onclick = () => {
+				content.innerHTML = listContentHTML[index];
+			})
+	);
+};
 const getContentHTML = () => {
 	let contentArr = [];
 	for (let battle in contentData) {
@@ -351,7 +375,12 @@ const getContentHTML = () => {
 	}
 	return contentArr;
 };
+
+renderHome();
+
 const listContentHTML = getContentHTML();
+
+$('.home-page').onclick = renderHome;
 
 battleList.forEach((item, index) => {
 	item.onclick = (e) => {

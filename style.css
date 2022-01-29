@@ -140,6 +140,28 @@ h6 {
 	transform: rotateZ(-45deg);
 }
 
+.header .right .home-page {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	margin: 1rem;
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 1.6rem;
+	transition: all 0.3s ease;
+	border: 5px solid transparent;
+}
+.header .right .home-page i {
+	font-size: 4rem;
+	transition: all 0.3s ease;
+}
+.header .right .home-page:hover {
+	border-color: black;
+}
+.header .right .home-page:hover i {
+	transform: scale(1.15);
+}
+
 .header .title {
 	transition: color 0.15s 0.3s ease;
 	font-size: var(--text-lv1);
@@ -354,6 +376,27 @@ ul {
 }
 .main .content > section > .container > .card .howto:hover:after {
 	transform: skewY(-20deg) translateY(15rem);
+}
+
+.main .content > .battle-info {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.main .content > .battle-info > .battle-info-item {
+	border-radius: 1.7rem;
+	border: 7px solid transparent;
+	transition: all 0.3s ease;
+	text-align: center;
+	cursor: pointer;
+	padding: 2.2rem;
+	margin: 1.2rem;
+}
+.main .content > .battle-info > .battle-info-item:hover {
+	border-color: black;
+}
+.main .content > .battle-info > .battle-info-item > .name {
+	font-weight: 700;
 }
 
 .onShow {

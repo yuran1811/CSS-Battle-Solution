@@ -301,6 +301,16 @@ const menuBtn = $('.menu-container');
 const battleList = $$('.nav-bar .item');
 const modalBox = $('.modal-box');
 
+const howtoBtnHandle = () => {
+	$$('.howto').forEach((item) => {
+		item.onclick = (e) => {
+			e.stopPropagation();
+			modalBox.classList.add('active');
+			modalBox.innerHTML =
+				howtoData[e.target.closest('.card').dataset.id];
+		};
+	});
+};
 const renderHome = () => {
 	content.innerHTML = `
 		<div class="battle-info">
@@ -318,12 +328,12 @@ const renderHome = () => {
 			)
 			.join('')}
 		</div>`;
-	$$('.battle-info-item').forEach(
-		(item, index) =>
-			(item.onclick = () => {
-				content.innerHTML = listContentHTML[index];
-			})
-	);
+	$$('.battle-info-item').forEach((item, index) => {
+		item.onclick = () => {
+			content.innerHTML = listContentHTML[index];
+			howtoBtnHandle();
+		};
+	});
 };
 const getContentHTML = () => {
 	let contentArr = [];
@@ -380,11 +390,11 @@ renderHome();
 
 const listContentHTML = getContentHTML();
 
-$('.home-page').onclick = renderHome;
-
 battleList.forEach((item, index) => {
 	item.onclick = (e) => {
 		e.stopPropagation();
+		modalBox.classList.remove('active');
+
 		const lastActive = $('.nav-bar .active');
 		if (lastActive)
 			lastActive.className = lastActive.className.replace(' active', '');
@@ -397,27 +407,20 @@ battleList.forEach((item, index) => {
 		}
 
 		content.innerHTML = listContentHTML[index];
-		$$('.howto').forEach((item) => {
-			item.onclick = (e) => {
-				e.stopPropagation();
-				modalBox.classList.add('active');
-				modalBox.innerHTML =
-					howtoData[e.target.closest('.card').dataset.id];
-			};
-		});
+		howtoBtnHandle();
 	};
 });
 
+$('.home-page').onclick = renderHome;
 menuBtn.onclick = (e) => {
 	e.stopPropagation();
+	modalBox.classList.remove('active');
 	menuBtn.classList.toggle('active');
 	navBar.classList.toggle('active');
 };
-
 document.body.onclick = () => {
 	modalBox.classList.remove('active');
 	menuBtn.classList.remove('active');
 	navBar.classList.remove('active');
 };
-
 modalBox.onclick = (e) => e.stopPropagation();

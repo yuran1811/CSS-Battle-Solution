@@ -295,6 +295,7 @@ const howtoData = [
 	'100',
 ];
 
+const header = $('.header');
 const navBar = $('.nav-bar');
 const content = $('.main .content');
 const menuBtn = $('.menu-container');
@@ -331,9 +332,11 @@ const renderHome = () => {
 	$$('.battle-info-item').forEach((item, index) => {
 		item.onclick = () => {
 			content.innerHTML = listContentHTML[index];
+			scrollTo(0, 0);
 			howtoBtnHandle();
 		};
 	});
+	scrollTo(0, 0);
 };
 const getContentHTML = () => {
 	let contentArr = [];
@@ -388,8 +391,11 @@ const getContentHTML = () => {
 
 renderHome();
 
+$('.home-page').onclick = renderHome;
+
 const listContentHTML = getContentHTML();
 
+modalBox.onclick = (e) => e.stopPropagation();
 battleList.forEach((item, index) => {
 	item.onclick = (e) => {
 		e.stopPropagation();
@@ -407,11 +413,10 @@ battleList.forEach((item, index) => {
 		}
 
 		content.innerHTML = listContentHTML[index];
+		scrollTo(0, 0);
 		howtoBtnHandle();
 	};
 });
-
-$('.home-page').onclick = renderHome;
 menuBtn.onclick = (e) => {
 	e.stopPropagation();
 	modalBox.classList.remove('active');
@@ -423,4 +428,4 @@ document.body.onclick = () => {
 	menuBtn.classList.remove('active');
 	navBar.classList.remove('active');
 };
-modalBox.onclick = (e) => e.stopPropagation();
+document.body.onscroll = () => header.classList.toggle('mini', scrollY >= 80);

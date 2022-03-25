@@ -13,7 +13,25 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	transition: all 0.3s ease;
 	border-bottom: 0.2rem solid rgba(218, 218, 218, 0.616);
+	&.mini {
+		height: $header-height-mini;
+
+		.title {
+			font-size: $text-lv0;
+			&:hover::after {
+				width: 70%;
+				height: 80%;
+			}
+
+			&::after {
+				height: 4px;
+				width: 30%;
+				bottom: 6px;
+			}
+		}
+	}
 
 	.left,
 	.right {
@@ -72,14 +90,13 @@
 	}
 	.right .home-page {
 		position: absolute;
-		top: 2rem;
+		top: 50%;
 		right: 2rem;
-		margin: 1rem;
-		padding: 1rem;
 		cursor: pointer;
 		border-radius: 1.6rem;
 		transition: all 0.3s ease;
 		border: 5px solid transparent;
+		transform: translateY(-50%);
 		&:hover {
 			border-color: black;
 			i {
@@ -88,6 +105,8 @@
 		}
 
 		i {
+			padding: 0.7rem;
+			position: relative;
 			font-size: 4rem;
 			transition: all 0.3s ease;
 		}

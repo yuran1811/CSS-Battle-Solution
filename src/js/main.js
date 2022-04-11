@@ -341,8 +341,10 @@ const renderHome = () => {
 const getContentHTML = () => {
 	let contentArr = [];
 	for (let battle in contentData) {
-		const battleCardsHTML = contentData[battle].map(
-			(item) => `
+		const battleCardsHTML = !contentData[battle].length
+			? ['Nothing']
+			: contentData[battle].map(
+					(item) => `
 				<div class="card" data-aos="fade-up" data-id="${item.id}">
 					<div class="card__image">
 						<div class="container">
@@ -375,15 +377,15 @@ const getContentHTML = () => {
 					<div class="card__overlay">
 					</div>
 				</div>`
-		);
+			  );
 		const index = +battle.replace('battle', '') - 1;
 		const battleSectionHTML = `
-			<section class="${battle}">
-				<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
-				<div class="container">
-					${battleCardsHTML.join('')}
-				</div>
-			</section>`;
+		<section class="${battle}">
+			<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
+			<div class="container">
+				${battleCardsHTML.join('')}
+			</div>
+		</section>`;
 		contentArr.push(battleSectionHTML);
 	}
 	return contentArr;

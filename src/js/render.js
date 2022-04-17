@@ -1,4 +1,7 @@
-const modalBoxCpn = `<div class="modal-box"></div>`;
+const modalBoxCpn = `<div class="modal-box">
+	<div class="title"></div>
+	<div class="content">Nothing here</div>
+</div>`;
 
 const headerCpn = `
 	<div class="header">

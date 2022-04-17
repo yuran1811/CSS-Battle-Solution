@@ -41,9 +41,9 @@ $blue: rgb(20, 51, 97);
 	user-select: none;
 	padding: 0;
 	margin: 0;
-}
-*::-webkit-scrollbar {
-	width: 0;
+	&::-webkit-scrollbar {
+		width: 0;
+	}
 }
 
 html {

@@ -307,7 +307,7 @@ const howtoBtnHandle = () => {
 		item.onclick = (e) => {
 			e.stopPropagation();
 			modalBox.classList.add('active');
-			modalBox.innerHTML =
+			modalBox.querySelector('div.title').innerText =
 				howtoData[e.target.closest('.card').dataset.id];
 		};
 	});

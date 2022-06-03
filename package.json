@@ -1,6 +1,7 @@
 {
 	"name": "css-battle-solution-generate",
 	"main": "generate.js",
+	"type": "module",
 	"scripts": {
 		"start": "node generate.js"
 	},

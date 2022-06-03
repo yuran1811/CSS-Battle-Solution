@@ -1,15 +1,15 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-let rawHowToData;
-fetch('howToData.json')
-	.then((res) => res.json())
-	.then((data) => {
-		rawHowToData = data;
-	})
-	.catch((err) => {
-		console.log(err);
-		rawHowToData = [
+(async () => {
+	let howtoData;
+
+	try {
+		const resp = await fetch('howToData.json');
+		howtoData = await resp.json();
+	} catch (e) {
+		console.log(e);
+		howtoData = [
 			{
 				id: 0,
 				name: '',
@@ -516,227 +516,225 @@ fetch('howToData.json')
 				data: ``,
 			},
 		];
-	});
+	}
 
-// Main Handle
-const contentData = {
-	battle1: [
-		{
-			id: 2,
-			name: 'Carrom',
-			src: `Battle1/2_Carrom.html`,
-			imgSrc: 'src/img/carrom.PNG',
-		},
-		{
-			id: 3,
-			name: 'Push Button',
-			src: `Battle1/3_PushButton.html`,
-			imgSrc: 'src/img/pushbtn.PNG',
-		},
-		{
-			id: 4,
-			name: 'Ups and Downs',
-			src: `Battle1/4_UpsnDowns.html`,
-			imgSrc: 'src/img/upanddown.PNG',
-		},
-		{
-			id: 5,
-			name: 'Acid Rain',
-			src: `Battle1/5_AcidRain.html`,
-			imgSrc: 'src/img/acidrain.PNG',
-		},
-		{
-			id: 6,
-			name: 'Missing Slice',
-			src: `Battle1/6_MissingSlice.html`,
-			imgSrc: 'src/img/missingslice.PNG',
-		},
-		{
-			id: 7,
-			name: 'Leafy Trail',
-			src: `Battle1/7_LeafyTrail.html`,
-			imgSrc: 'src/img/leafytrail.PNG',
-		},
-		{
-			id: 8,
-			name: 'Forking Crazy',
-			src: `Battle1/8_ForkingCrazy.html`,
-			imgSrc: 'src/img/forking.PNG',
-		},
-		{
-			id: 9,
-			name: 'Tesseract',
-			src: `Battle1/9_Tesseract.html`,
-			imgSrc: 'src/img/tesseract.PNG',
-		},
-	],
-	battle2: [
-		{
-			id: 13,
-			name: 'Totally Triangle',
-			src: 'Battle2/13_TotallyTriangle.html',
-			imgSrc: 'src/img/triangle.PNG',
-		},
-		{
-			id: 14,
-			name: 'Web Maker Logo',
-			src: 'Battle2/14_WebMakerLogo.html',
-			imgSrc: 'src/img/webmakerlogo.PNG',
-		},
-		{
-			id: 15,
-			name: 'Overlap',
-			src: 'Battle2/15_Overlap.html',
-			imgSrc: 'src/img/overlap.PNG',
-		},
-		{
-			id: 16,
-			name: 'Eye of the Tiger',
-			src: 'Battle2/16_EyeOfTheTiger.html',
-			imgSrc: 'src/img/eyeofthetiger.PNG',
-		},
-		{
-			id: 17,
-			name: 'Fidget Spinner',
-			src: 'Battle2/17_FidgetSpinner.html',
-			imgSrc: 'src/img/spinner.PNG',
-		},
-		{
-			id: 18,
-			name: 'Matrix',
-			src: 'Battle2/18_Matrix.html',
-			imgSrc: 'src/img/matrix.PNG',
-		},
-	],
-	battle3: [
-		{
-			id: 19,
-			name: 'Cube',
-			src: 'Battle3/19_Cube.html',
-			imgSrc: 'src/img/cube.PNG',
-		},
-		{
-			id: 20,
-			name: 'Ticket',
-			src: 'Battle3/20_Ticket.html',
-			imgSrc: 'src/img/ticket.PNG',
-		},
-	],
-	battle4: [
-		{
-			id: 21,
-			name: 'SitePointLogo',
-			src: 'Battle4/21_SitePointLogo.html',
-			imgSrc: 'src/img/sitepointlogo.PNG',
-		},
-		{
-			id: 22,
-			name: 'Cloud',
-			src: 'Battle4/22_Cloud.html',
-			imgSrc: 'src/img/cloud.PNG',
-		},
-		{
-			id: 23,
-			name: 'Boxception',
-			src: 'Battle4/23_Boxception.html',
-			imgSrc: 'src/img/box.PNG',
-		},
-		{
-			id: 24,
-			name: 'Switches',
-			src: 'Battle4/24_Switches.html',
-			imgSrc: 'src/img/switches.PNG',
-		},
-		{
-			id: 25,
-			name: 'Blossom',
-			src: 'Battle4/25_Blossom.html',
-			imgSrc: 'src/img/blossom.PNG',
-		},
-		{
-			id: 26,
-			name: 'Smiley',
-			src: 'Battle4/26_Smiley.html',
-			imgSrc: 'src/img/smile.PNG',
-		},
-		{
-			id: 27,
-			name: 'LockUp',
-			src: 'Battle4/27_LockUp.html',
-			imgSrc: 'src/img/lockup.PNG',
-		},
-		{
-			id: 28,
-			name: 'CupsAndBalls',
-			src: 'Battle4/28_CupsAndBalls.html',
-			imgSrc: 'src/img/cupandball.PNG',
-		},
-	],
-	battle5: [
-		{
-			id: 29,
-			name: 'Suffocate',
-			src: 'Battle5/29_Suffocate.html',
-			imgSrc: 'src/img/suffocate.PNG',
-		},
-		{
-			id: 30,
-			name: 'Horizon',
-			src: 'Battle5/30_Horizon.html',
-			imgSrc: 'src/img/horizon.PNG',
-		},
-	],
-	battle6: [],
-	battle7: [],
-	battle8: [],
-	battle9: [],
-	battle10: [],
-	battle11: [],
-	battle12: [],
-	battle13: [],
-	battle14: [],
-	battle15: [],
-	battle16: [
-		{
-			id: 91,
-			name: 'Reflection',
-			src: 'Battle16/91_Reflection.html',
-			imgSrc: 'src/img/reflection.PNG',
-		},
-	],
-	battle17: [],
-};
-const howtoData = JSON.parse(rawHowToData);
-const contentDataLth = contentData.length;
+	// Main Handle
+	const contentData = {
+		battle1: [
+			{
+				id: 2,
+				name: 'Carrom',
+				src: `Battle1/2_Carrom.html`,
+				imgSrc: 'src/img/carrom.PNG',
+			},
+			{
+				id: 3,
+				name: 'Push Button',
+				src: `Battle1/3_PushButton.html`,
+				imgSrc: 'src/img/pushbtn.PNG',
+			},
+			{
+				id: 4,
+				name: 'Ups and Downs',
+				src: `Battle1/4_UpsnDowns.html`,
+				imgSrc: 'src/img/upanddown.PNG',
+			},
+			{
+				id: 5,
+				name: 'Acid Rain',
+				src: `Battle1/5_AcidRain.html`,
+				imgSrc: 'src/img/acidrain.PNG',
+			},
+			{
+				id: 6,
+				name: 'Missing Slice',
+				src: `Battle1/6_MissingSlice.html`,
+				imgSrc: 'src/img/missingslice.PNG',
+			},
+			{
+				id: 7,
+				name: 'Leafy Trail',
+				src: `Battle1/7_LeafyTrail.html`,
+				imgSrc: 'src/img/leafytrail.PNG',
+			},
+			{
+				id: 8,
+				name: 'Forking Crazy',
+				src: `Battle1/8_ForkingCrazy.html`,
+				imgSrc: 'src/img/forking.PNG',
+			},
+			{
+				id: 9,
+				name: 'Tesseract',
+				src: `Battle1/9_Tesseract.html`,
+				imgSrc: 'src/img/tesseract.PNG',
+			},
+		],
+		battle2: [
+			{
+				id: 13,
+				name: 'Totally Triangle',
+				src: 'Battle2/13_TotallyTriangle.html',
+				imgSrc: 'src/img/triangle.PNG',
+			},
+			{
+				id: 14,
+				name: 'Web Maker Logo',
+				src: 'Battle2/14_WebMakerLogo.html',
+				imgSrc: 'src/img/webmakerlogo.PNG',
+			},
+			{
+				id: 15,
+				name: 'Overlap',
+				src: 'Battle2/15_Overlap.html',
+				imgSrc: 'src/img/overlap.PNG',
+			},
+			{
+				id: 16,
+				name: 'Eye of the Tiger',
+				src: 'Battle2/16_EyeOfTheTiger.html',
+				imgSrc: 'src/img/eyeofthetiger.PNG',
+			},
+			{
+				id: 17,
+				name: 'Fidget Spinner',
+				src: 'Battle2/17_FidgetSpinner.html',
+				imgSrc: 'src/img/spinner.PNG',
+			},
+			{
+				id: 18,
+				name: 'Matrix',
+				src: 'Battle2/18_Matrix.html',
+				imgSrc: 'src/img/matrix.PNG',
+			},
+		],
+		battle3: [
+			{
+				id: 19,
+				name: 'Cube',
+				src: 'Battle3/19_Cube.html',
+				imgSrc: 'src/img/cube.PNG',
+			},
+			{
+				id: 20,
+				name: 'Ticket',
+				src: 'Battle3/20_Ticket.html',
+				imgSrc: 'src/img/ticket.PNG',
+			},
+		],
+		battle4: [
+			{
+				id: 21,
+				name: 'SitePointLogo',
+				src: 'Battle4/21_SitePointLogo.html',
+				imgSrc: 'src/img/sitepointlogo.PNG',
+			},
+			{
+				id: 22,
+				name: 'Cloud',
+				src: 'Battle4/22_Cloud.html',
+				imgSrc: 'src/img/cloud.PNG',
+			},
+			{
+				id: 23,
+				name: 'Boxception',
+				src: 'Battle4/23_Boxception.html',
+				imgSrc: 'src/img/box.PNG',
+			},
+			{
+				id: 24,
+				name: 'Switches',
+				src: 'Battle4/24_Switches.html',
+				imgSrc: 'src/img/switches.PNG',
+			},
+			{
+				id: 25,
+				name: 'Blossom',
+				src: 'Battle4/25_Blossom.html',
+				imgSrc: 'src/img/blossom.PNG',
+			},
+			{
+				id: 26,
+				name: 'Smiley',
+				src: 'Battle4/26_Smiley.html',
+				imgSrc: 'src/img/smile.PNG',
+			},
+			{
+				id: 27,
+				name: 'LockUp',
+				src: 'Battle4/27_LockUp.html',
+				imgSrc: 'src/img/lockup.PNG',
+			},
+			{
+				id: 28,
+				name: 'CupsAndBalls',
+				src: 'Battle4/28_CupsAndBalls.html',
+				imgSrc: 'src/img/cupandball.PNG',
+			},
+		],
+		battle5: [
+			{
+				id: 29,
+				name: 'Suffocate',
+				src: 'Battle5/29_Suffocate.html',
+				imgSrc: 'src/img/suffocate.PNG',
+			},
+			{
+				id: 30,
+				name: 'Horizon',
+				src: 'Battle5/30_Horizon.html',
+				imgSrc: 'src/img/horizon.PNG',
+			},
+		],
+		battle6: [],
+		battle7: [],
+		battle8: [],
+		battle9: [],
+		battle10: [],
+		battle11: [],
+		battle12: [],
+		battle13: [],
+		battle14: [],
+		battle15: [],
+		battle16: [
+			{
+				id: 91,
+				name: 'Reflection',
+				src: 'Battle16/91_Reflection.html',
+				imgSrc: 'src/img/reflection.PNG',
+			},
+		],
+		battle17: [],
+	};
 
-const header = $('.header');
-const navBar = $('.nav-bar');
-const content = $('.main .content');
-const menuBtn = $('.menu-container');
-const battleList = $$('.nav-bar .item');
-const modalBox = $('.modal-box');
-const modalBoxTitle = $('.modal-box div.title');
-const modalBoxContent = $('.modal-box div.content');
+	const header = $('.header');
+	const navBar = $('.nav-bar');
+	const content = $('.main .content');
+	const menuBtn = $('.menu-container');
+	const battleList = $$('.nav-bar .item');
+	const modalBox = $('.modal-box');
+	const modalBoxTitle = $('.modal-box div.title');
+	const modalBoxContent = $('.modal-box div.content');
 
-const howtoBtnHandle = () => {
-	$$('.howto').forEach((item) => {
-		item.onclick = (e) => {
-			e.stopPropagation();
+	const howtoBtnHandle = () => {
+		$$('.howto').forEach((item) => {
+			item.onclick = (e) => {
+				e.stopPropagation();
 
-			const getCode = (data) =>
-				`<pre class="language-markup"><code class="language-markup">${data}</code></pre>`;
-			const id = e.target.closest('.card').dataset.id;
+				const getCode = (data) =>
+					`<pre class="language-html"><code class="language-html">${data}</code></pre>`;
+				const id = e.target.closest('.card').dataset.id;
 
-			modalBox.classList.add('active');
-			modalBoxTitle.innerText = howtoData[id].name;
-			modalBoxContent.innerHTML = getCode(howtoData[id].data);
+				modalBox.classList.add('active');
+				modalBoxTitle.innerText = howtoData[id].name;
+				modalBoxContent.innerHTML = getCode(howtoData[id].data);
 
-			Prism.highlightAll();
-		};
-	});
-};
-const renderHome = () => {
-	content.innerHTML = `
+				Prism.highlightAll();
+			};
+		});
+	};
+	const renderHome = () => {
+		content.innerHTML = `
 		<div class="battle-info">
 		${battles
 			.map(
@@ -749,23 +747,23 @@ const renderHome = () => {
 			.join('')}
 		</div>`;
 
-	$$('.battle-info-item').forEach((item, index) => {
-		item.onclick = () => {
-			content.innerHTML = listContentHTML[index];
-			scrollTo(0, 0);
-			howtoBtnHandle();
-		};
-	});
+		$$('.battle-info-item').forEach((item, index) => {
+			item.onclick = () => {
+				content.innerHTML = listContentHTML[index];
+				scrollTo(0, 0);
+				howtoBtnHandle();
+			};
+		});
 
-	scrollTo(0, 0);
-};
-const getContentHTML = () => {
-	let contentArr = [];
-	for (let battle in contentData) {
-		const battleCardsHTML = !contentData[battle].length
-			? ['Nothing']
-			: contentData[battle].map(
-					(item) => `
+		scrollTo(0, 0);
+	};
+	const getContentHTML = () => {
+		let contentArr = [];
+		for (let battle in contentData) {
+			const battleCardsHTML = !contentData[battle].length
+				? ['Nothing']
+				: contentData[battle].map(
+						(item) => `
 				<div class="card" data-aos="fade-up" data-id="${item.id}">
 					<div class="card__image">
 						<div class="container">
@@ -791,55 +789,57 @@ const getContentHTML = () => {
 					</div>
 					<div class="card__overlay"></div>
 				</div>`
-			  );
-		const index = +battle.replace('battle', '') - 1;
-		const battleSectionHTML = `
+				  );
+			const index = +battle.replace('battle', '') - 1;
+			const battleSectionHTML = `
 		<section class="${battle}">
 			<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
 			<div class="container">
 				${battleCardsHTML.join('')}
 			</div>
 		</section>`;
-		contentArr.push(battleSectionHTML);
-	}
-	return contentArr;
-};
+			contentArr.push(battleSectionHTML);
+		}
+		return contentArr;
+	};
 
-renderHome();
+	renderHome();
 
-const listContentHTML = getContentHTML();
+	const listContentHTML = getContentHTML();
 
-$('.home-page').onclick = renderHome;
-modalBox.onclick = (e) => e.stopPropagation();
-battleList.forEach((_, index) => {
-	_.onclick = (e) => {
+	$('.home-page').onclick = renderHome;
+	modalBox.onclick = (e) => e.stopPropagation();
+	battleList.forEach((_, index) => {
+		_.onclick = (e) => {
+			e.stopPropagation();
+			modalBox.classList.remove('active');
+
+			const lastActive = $('.nav-bar .active');
+			lastActive && lastActive.classList.remove('active');
+			e.currentTarget.classList.add('active');
+
+			const lastShow = $('.nav-bar .onShow');
+			if (lastShow) {
+				lastShow.classList.remove('onShow');
+				lastShow.classList.add('onHide');
+			}
+
+			content.innerHTML = listContentHTML[index];
+			scrollTo(0, 0);
+			howtoBtnHandle();
+		};
+	});
+	menuBtn.onclick = (e) => {
 		e.stopPropagation();
 		modalBox.classList.remove('active');
-
-		const lastActive = $('.nav-bar .active');
-		lastActive && lastActive.classList.remove('active');
-		e.currentTarget.classList.add('active');
-
-		const lastShow = $('.nav-bar .onShow');
-		if (lastShow) {
-			lastShow.classList.remove('onShow');
-			lastShow.classList.add('onHide');
-		}
-
-		content.innerHTML = listContentHTML[index];
-		scrollTo(0, 0);
-		howtoBtnHandle();
+		menuBtn.classList.toggle('active');
+		navBar.classList.toggle('active');
 	};
-});
-menuBtn.onclick = (e) => {
-	e.stopPropagation();
-	modalBox.classList.remove('active');
-	menuBtn.classList.toggle('active');
-	navBar.classList.toggle('active');
-};
-document.body.onclick = () => {
-	modalBox.classList.remove('active');
-	menuBtn.classList.remove('active');
-	navBar.classList.remove('active');
-};
-document.body.onscroll = () => header.classList.toggle('mini', scrollY >= 80);
+	document.body.onclick = () => {
+		modalBox.classList.remove('active');
+		menuBtn.classList.remove('active');
+		navBar.classList.remove('active');
+	};
+	document.body.onscroll = () =>
+		header.classList.toggle('mini', scrollY >= 80);
+})();

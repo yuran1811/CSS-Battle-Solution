@@ -36,11 +36,14 @@ $blue: rgb(20, 51, 97);
 
 * {
 	-webkit-tap-highlight-color: transparent;
-	font-family: 'Oswald', sans-serif;
 	box-sizing: border-box;
 	user-select: none;
 	padding: 0;
 	margin: 0;
+
+	&:not(i) {
+		font-family: 'Oswald', sans-serif !important;
+	}
 	&::-webkit-scrollbar {
 		width: 0;
 	}
@@ -52,13 +55,13 @@ html {
 
 a {
 	text-decoration: none;
-}
-a:link,
-a:visited,
-a:hover,
-a:active,
-a:focus {
-	color: unset;
+	&:link,
+	&:visited,
+	&:hover,
+	&:active,
+	&:focus {
+		color: unset;
+	}
 }
 
 h1,

@@ -1,6 +1,523 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+let rawHowToData;
+fetch('howToData.json')
+	.then((res) => res.json())
+	.then((data) => {
+		rawHowToData = data;
+	})
+	.catch((err) => {
+		console.log(err);
+		rawHowToData = [
+			{
+				id: 0,
+				name: '',
+				data: ``,
+			},
+			{
+				id: 1,
+				name: '',
+				data: ``,
+			},
+			{
+				id: 2,
+				name: 'Carrom Guide',
+				data: ``,
+			},
+			{
+				id: 3,
+				name: 'Push Button Guide',
+				data: ``,
+			},
+			{
+				id: 4,
+				name: 'Ups and Downs Guide',
+				data: ``,
+			},
+			{
+				id: 5,
+				name: 'Acid Rain Guide',
+				data: ``,
+			},
+			{
+				id: 6,
+				name: 'Missing Slice Guide',
+				data: ``,
+			},
+			{
+				id: 7,
+				name: 'Leafy Trail Guide',
+				data: ``,
+			},
+			{
+				id: 8,
+				name: 'Forking Crazy Guide',
+				data: ``,
+			},
+			{
+				id: 9,
+				name: 'Tesseract Guide',
+				data: ``,
+			},
+			{
+				id: 10,
+				name: '',
+				data: ``,
+			},
+			{
+				id: 11,
+				name: '',
+				data: ``,
+			},
+			{
+				id: 12,
+				name: '',
+				data: ``,
+			},
+			{
+				id: 13,
+				name: 'Totally Triangle Guide',
+				data: ``,
+			},
+			{
+				id: 14,
+				name: 'Web Maker Logo Guide',
+				data: ``,
+			},
+			{
+				id: 15,
+				name: 'Overlap Guide',
+				data: ``,
+			},
+			{
+				id: 16,
+				name: 'Eye of the Tiger Guide',
+				data: ``,
+			},
+			{
+				id: 17,
+				name: 'Fidget Spinner Guide',
+				data: ``,
+			},
+			{
+				id: 18,
+				name: 'Matrix Guide',
+				data: ``,
+			},
+			{
+				id: 19,
+				name: 'Cube Guide',
+				data: ``,
+			},
+			{
+				id: 20,
+				name: 'Ticket Guide',
+				data: ``,
+			},
+			{
+				id: 21,
+				name: 'Site Point Logo Guide',
+				data: ``,
+			},
+			{
+				id: 22,
+				name: 'Cloud Guide',
+				data: ``,
+			},
+			{
+				id: 23,
+				name: 'Boxception Guide',
+				data: ``,
+			},
+			{
+				id: 24,
+				name: 'Switches Guide',
+				data: ``,
+			},
+			{
+				id: 25,
+				name: 'Blossom Guide',
+				data: ``,
+			},
+			{
+				id: 26,
+				name: 'Smiley Guide',
+				data: ``,
+			},
+			{
+				id: 27,
+				name: 'Lock Up Guide',
+				data: ``,
+			},
+			{
+				id: 28,
+				name: 'Cups and Balls Guide',
+				data: ``,
+			},
+			{
+				id: 29,
+				name: 'Suffocate Guide',
+				data: ``,
+			},
+			{
+				id: 30,
+				name: 'Horizon Guide',
+				data: ``,
+			},
+			{
+				id: 31,
+				name: '31',
+				data: ``,
+			},
+			{
+				id: 32,
+				name: '32',
+				data: ``,
+			},
+			{
+				id: 33,
+				name: '33',
+				data: ``,
+			},
+			{
+				id: 34,
+				name: '34',
+				data: ``,
+			},
+			{
+				id: 35,
+				name: '35',
+				data: ``,
+			},
+			{
+				id: 36,
+				name: '36',
+				data: ``,
+			},
+			{
+				id: 37,
+				name: '37',
+				data: ``,
+			},
+			{
+				id: 38,
+				name: '38',
+				data: ``,
+			},
+			{
+				id: 39,
+				name: '39',
+				data: ``,
+			},
+			{
+				id: 40,
+				name: '40',
+				data: ``,
+			},
+			{
+				id: 41,
+				name: '41',
+				data: ``,
+			},
+			{
+				id: 42,
+				name: '42',
+				data: ``,
+			},
+			{
+				id: 43,
+				name: '43',
+				data: ``,
+			},
+			{
+				id: 44,
+				name: '44',
+				data: ``,
+			},
+			{
+				id: 45,
+				name: '45',
+				data: ``,
+			},
+			{
+				id: 46,
+				name: '46',
+				data: ``,
+			},
+			{
+				id: 47,
+				name: '47',
+				data: ``,
+			},
+			{
+				id: 48,
+				name: '48',
+				data: ``,
+			},
+			{
+				id: 49,
+				name: '49',
+				data: ``,
+			},
+			{
+				id: 50,
+				name: '50',
+				data: ``,
+			},
+			{
+				id: 51,
+				name: '51',
+				data: ``,
+			},
+			{
+				id: 52,
+				name: '52',
+				data: ``,
+			},
+			{
+				id: 53,
+				name: '53',
+				data: ``,
+			},
+			{
+				id: 54,
+				name: '54',
+				data: ``,
+			},
+			{
+				id: 55,
+				name: '55',
+				data: ``,
+			},
+			{
+				id: 56,
+				name: '56',
+				data: ``,
+			},
+			{
+				id: 57,
+				name: '57',
+				data: ``,
+			},
+			{
+				id: 58,
+				name: '58',
+				data: ``,
+			},
+			{
+				id: 59,
+				name: '59',
+				data: ``,
+			},
+			{
+				id: 60,
+				name: '60',
+				data: ``,
+			},
+			{
+				id: 61,
+				name: '61',
+				data: ``,
+			},
+			{
+				id: 62,
+				name: '62',
+				data: ``,
+			},
+			{
+				id: 63,
+				name: '63',
+				data: ``,
+			},
+			{
+				id: 64,
+				name: '64',
+				data: ``,
+			},
+			{
+				id: 65,
+				name: '65',
+				data: ``,
+			},
+			{
+				id: 66,
+				name: '66',
+				data: ``,
+			},
+			{
+				id: 67,
+				name: '67',
+				data: ``,
+			},
+			{
+				id: 68,
+				name: '68',
+				data: ``,
+			},
+			{
+				id: 69,
+				name: '69',
+				data: ``,
+			},
+			{
+				id: 70,
+				name: '70',
+				data: ``,
+			},
+			{
+				id: 71,
+				name: '71',
+				data: ``,
+			},
+			{
+				id: 72,
+				name: '72',
+				data: ``,
+			},
+			{
+				id: 73,
+				name: '73',
+				data: ``,
+			},
+			{
+				id: 74,
+				name: '74',
+				data: ``,
+			},
+			{
+				id: 75,
+				name: '75',
+				data: ``,
+			},
+			{
+				id: 76,
+				name: '76',
+				data: ``,
+			},
+			{
+				id: 77,
+				name: '77',
+				data: ``,
+			},
+			{
+				id: 78,
+				name: '78',
+				data: ``,
+			},
+			{
+				id: 79,
+				name: '79',
+				data: ``,
+			},
+			{
+				id: 80,
+				name: '80',
+				data: ``,
+			},
+			{
+				id: 81,
+				name: '81',
+				data: ``,
+			},
+			{
+				id: 82,
+				name: '82',
+				data: ``,
+			},
+			{
+				id: 83,
+				name: '83',
+				data: ``,
+			},
+			{
+				id: 84,
+				name: '84',
+				data: ``,
+			},
+			{
+				id: 85,
+				name: '85',
+				data: ``,
+			},
+			{
+				id: 86,
+				name: '86',
+				data: ``,
+			},
+			{
+				id: 87,
+				name: '87',
+				data: ``,
+			},
+			{
+				id: 88,
+				name: '88',
+				data: ``,
+			},
+			{
+				id: 89,
+				name: '89',
+				data: ``,
+			},
+			{
+				id: 90,
+				name: '90',
+				data: ``,
+			},
+			{
+				id: 91,
+				name: 'Reflection',
+				data: ``,
+			},
+			{
+				id: 92,
+				name: '92',
+				data: ``,
+			},
+			{
+				id: 93,
+				name: '93',
+				data: ``,
+			},
+			{
+				id: 94,
+				name: '94',
+				data: ``,
+			},
+			{
+				id: 95,
+				name: '95',
+				data: ``,
+			},
+			{
+				id: 96,
+				name: '96',
+				data: ``,
+			},
+			{
+				id: 97,
+				name: '97',
+				data: ``,
+			},
+			{
+				id: 98,
+				name: '98',
+				data: ``,
+			},
+			{
+				id: 99,
+				name: '99',
+				data: ``,
+			},
+			{
+				id: 100,
+				name: '100',
+				data: ``,
+			},
+		];
+	});
+
 // Main Handle
 const contentData = {
 	battle1: [
@@ -189,520 +706,7 @@ const contentData = {
 	],
 	battle17: [],
 };
-const howtoData = [
-	{
-		id: 0,
-		name: '',
-		data: ``,
-	},
-	{
-		id: 1,
-		name: '',
-		data: ``,
-	},
-	{
-		id: 2,
-		name: 'Carrom Guide',
-		data: `div {
-	background: #62374e;
-	position: fixed;
-	height: 300;
-	width: 400;
-	left: 0;
-	top: 0
-}`,
-	},
-	{
-		id: 3,
-		name: 'Push Button Guide',
-		data: ``,
-	},
-	{
-		id: 4,
-		name: 'Ups and Downs Guide',
-		data: ``,
-	},
-	{
-		id: 5,
-		name: 'Acid Rain Guide',
-		data: ``,
-	},
-	{
-		id: 6,
-		name: 'Missing Slice Guide',
-		data: ``,
-	},
-	{
-		id: 7,
-		name: 'Leafy Trail Guide',
-		data: ``,
-	},
-	{
-		id: 8,
-		name: 'Forking Crazy Guide',
-		data: ``,
-	},
-	{
-		id: 9,
-		name: 'Tesseract Guide',
-		data: ``,
-	},
-	{
-		id: 10,
-		name: '',
-		data: ``,
-	},
-	{
-		id: 11,
-		name: '',
-		data: ``,
-	},
-	{
-		id: 12,
-		name: '',
-		data: ``,
-	},
-	{
-		id: 13,
-		name: 'Totally Triangle Guide',
-		data: ``,
-	},
-	{
-		id: 14,
-		name: 'Web Maker Logo Guide',
-		data: ``,
-	},
-	{
-		id: 15,
-		name: 'Overlap Guide',
-		data: ``,
-	},
-	{
-		id: 16,
-		name: 'Eye of the Tiger Guide',
-		data: ``,
-	},
-	{
-		id: 17,
-		name: 'Fidget Spinner Guide',
-		data: ``,
-	},
-	{
-		id: 18,
-		name: 'Matrix Guide',
-		data: ``,
-	},
-	{
-		id: 19,
-		name: 'Cube Guide',
-		data: ``,
-	},
-	{
-		id: 20,
-		name: 'Ticket Guide',
-		data: ``,
-	},
-	{
-		id: 21,
-		name: 'Site Point Logo Guide',
-		data: ``,
-	},
-	{
-		id: 22,
-		name: 'Cloud Guide',
-		data: ``,
-	},
-	{
-		id: 23,
-		name: 'Boxception Guide',
-		data: ``,
-	},
-	{
-		id: 24,
-		name: 'Switches Guide',
-		data: ``,
-	},
-	{
-		id: 25,
-		name: 'Blossom Guide',
-		data: ``,
-	},
-	{
-		id: 26,
-		name: 'Smiley Guide',
-		data: ``,
-	},
-	{
-		id: 27,
-		name: 'Lock Up Guide',
-		data: ``,
-	},
-	{
-		id: 28,
-		name: 'Cups and Balls Guide',
-		data: ``,
-	},
-	{
-		id: 29,
-		name: 'Suffocate Guide',
-		data: ``,
-	},
-	{
-		id: 30,
-		name: 'Horizon Guide',
-		data: ``,
-	},
-	{
-		id: 31,
-		name: '31',
-		data: ``,
-	},
-	{
-		id: 32,
-		name: '32',
-		data: ``,
-	},
-	{
-		id: 33,
-		name: '33',
-		data: ``,
-	},
-	{
-		id: 34,
-		name: '34',
-		data: ``,
-	},
-	{
-		id: 35,
-		name: '35',
-		data: ``,
-	},
-	{
-		id: 36,
-		name: '36',
-		data: ``,
-	},
-	{
-		id: 37,
-		name: '37',
-		data: ``,
-	},
-	{
-		id: 38,
-		name: '38',
-		data: ``,
-	},
-	{
-		id: 39,
-		name: '39',
-		data: ``,
-	},
-	{
-		id: 40,
-		name: '40',
-		data: ``,
-	},
-	{
-		id: 41,
-		name: '41',
-		data: ``,
-	},
-	{
-		id: 42,
-		name: '42',
-		data: ``,
-	},
-	{
-		id: 43,
-		name: '43',
-		data: ``,
-	},
-	{
-		id: 44,
-		name: '44',
-		data: ``,
-	},
-	{
-		id: 45,
-		name: '45',
-		data: ``,
-	},
-	{
-		id: 46,
-		name: '46',
-		data: ``,
-	},
-	{
-		id: 47,
-		name: '47',
-		data: ``,
-	},
-	{
-		id: 48,
-		name: '48',
-		data: ``,
-	},
-	{
-		id: 49,
-		name: '49',
-		data: ``,
-	},
-	{
-		id: 50,
-		name: '50',
-		data: ``,
-	},
-	{
-		id: 51,
-		name: '51',
-		data: ``,
-	},
-	{
-		id: 52,
-		name: '52',
-		data: ``,
-	},
-	{
-		id: 53,
-		name: '53',
-		data: ``,
-	},
-	{
-		id: 54,
-		name: '54',
-		data: ``,
-	},
-	{
-		id: 55,
-		name: '55',
-		data: ``,
-	},
-	{
-		id: 56,
-		name: '56',
-		data: ``,
-	},
-	{
-		id: 57,
-		name: '57',
-		data: ``,
-	},
-	{
-		id: 58,
-		name: '58',
-		data: ``,
-	},
-	{
-		id: 59,
-		name: '59',
-		data: ``,
-	},
-	{
-		id: 60,
-		name: '60',
-		data: ``,
-	},
-	{
-		id: 61,
-		name: '61',
-		data: ``,
-	},
-	{
-		id: 62,
-		name: '62',
-		data: ``,
-	},
-	{
-		id: 63,
-		name: '63',
-		data: ``,
-	},
-	{
-		id: 64,
-		name: '64',
-		data: ``,
-	},
-	{
-		id: 65,
-		name: '65',
-		data: ``,
-	},
-	{
-		id: 66,
-		name: '66',
-		data: ``,
-	},
-	{
-		id: 67,
-		name: '67',
-		data: ``,
-	},
-	{
-		id: 68,
-		name: '68',
-		data: ``,
-	},
-	{
-		id: 69,
-		name: '69',
-		data: ``,
-	},
-	{
-		id: 70,
-		name: '70',
-		data: ``,
-	},
-	{
-		id: 71,
-		name: '71',
-		data: ``,
-	},
-	{
-		id: 72,
-		name: '72',
-		data: ``,
-	},
-	{
-		id: 73,
-		name: '73',
-		data: ``,
-	},
-	{
-		id: 74,
-		name: '74',
-		data: ``,
-	},
-	{
-		id: 75,
-		name: '75',
-		data: ``,
-	},
-	{
-		id: 76,
-		name: '76',
-		data: ``,
-	},
-	{
-		id: 77,
-		name: '77',
-		data: ``,
-	},
-	{
-		id: 78,
-		name: '78',
-		data: ``,
-	},
-	{
-		id: 79,
-		name: '79',
-		data: ``,
-	},
-	{
-		id: 80,
-		name: '80',
-		data: ``,
-	},
-	{
-		id: 81,
-		name: '81',
-		data: ``,
-	},
-	{
-		id: 82,
-		name: '82',
-		data: ``,
-	},
-	{
-		id: 83,
-		name: '83',
-		data: ``,
-	},
-	{
-		id: 84,
-		name: '84',
-		data: ``,
-	},
-	{
-		id: 85,
-		name: '85',
-		data: ``,
-	},
-	{
-		id: 86,
-		name: '86',
-		data: ``,
-	},
-	{
-		id: 87,
-		name: '87',
-		data: ``,
-	},
-	{
-		id: 88,
-		name: '88',
-		data: ``,
-	},
-	{
-		id: 89,
-		name: '89',
-		data: ``,
-	},
-	{
-		id: 90,
-		name: '90',
-		data: ``,
-	},
-	{
-		id: 91,
-		name: 'Reflection',
-		data: ``,
-	},
-	{
-		id: 92,
-		name: '92',
-		data: ``,
-	},
-	{
-		id: 93,
-		name: '93',
-		data: ``,
-	},
-	{
-		id: 94,
-		name: '94',
-		data: ``,
-	},
-	{
-		id: 95,
-		name: '95',
-		data: ``,
-	},
-	{
-		id: 96,
-		name: '96',
-		data: ``,
-	},
-	{
-		id: 97,
-		name: '97',
-		data: ``,
-	},
-	{
-		id: 98,
-		name: '98',
-		data: ``,
-	},
-	{
-		id: 99,
-		name: '99',
-		data: ``,
-	},
-	{
-		id: 100,
-		name: '100',
-		data: ``,
-	},
-];
+const howtoData = JSON.parse(rawHowToData);
 const contentDataLth = contentData.length;
 
 const header = $('.header');
@@ -719,10 +723,15 @@ const howtoBtnHandle = () => {
 		item.onclick = (e) => {
 			e.stopPropagation();
 
+			const getCode = (data) =>
+				`<pre class="language-markup"><code class="language-markup">${data}</code></pre>`;
 			const id = e.target.closest('.card').dataset.id;
+
 			modalBox.classList.add('active');
 			modalBoxTitle.innerText = howtoData[id].name;
-			modalBoxContent.innerHTML = '';
+			modalBoxContent.innerHTML = getCode(howtoData[id].data);
+
+			Prism.highlightAll();
 		};
 	});
 };
@@ -758,11 +767,6 @@ const getContentHTML = () => {
 			: contentData[battle].map(
 					(item) => `
 				<div class="card" data-aos="fade-up" data-id="${item.id}">
-					<div class="card__data" style="">
-						<pre class="language-css">
-							<code class="language-css">${howtoData[item.id].data}</code>
-						</pre>
-					</div>
 					<div class="card__image">
 						<div class="container">
 							<div class="front">
@@ -803,10 +807,9 @@ const getContentHTML = () => {
 
 renderHome();
 
-$('.home-page').onclick = renderHome;
-
 const listContentHTML = getContentHTML();
 
+$('.home-page').onclick = renderHome;
 modalBox.onclick = (e) => e.stopPropagation();
 battleList.forEach((_, index) => {
 	_.onclick = (e) => {
@@ -840,5 +843,3 @@ document.body.onclick = () => {
 	navBar.classList.remove('active');
 };
 document.body.onscroll = () => header.classList.toggle('mini', scrollY >= 80);
-
-require('./prism.js');

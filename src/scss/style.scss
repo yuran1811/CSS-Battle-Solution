@@ -15,20 +15,21 @@
 	justify-content: space-between;
 	transition: all 0.3s ease;
 	border-bottom: 0.2rem solid rgba(218, 218, 218, 0.616);
+
 	&.mini {
 		height: $header-height-mini;
 
 		.title {
 			font-size: $text-lv0;
-			&:hover::after {
-				width: 70%;
-				height: 80%;
-			}
 
 			&::after {
 				height: 4px;
 				width: 30%;
 				bottom: 6px;
+			}
+			&:hover::after {
+				width: 70%;
+				height: 80%;
 			}
 		}
 	}
@@ -43,13 +44,16 @@
 		width: 50px;
 		height: 50px;
 		align-items: center;
+
 		.menu-container {
 			width: 50px;
 			height: 100%;
 			cursor: pointer;
+
 			&.active {
 				.menu {
 					background: transparent;
+
 					&::before {
 						transform: rotateZ(45deg);
 					}
@@ -67,6 +71,7 @@
 				transition: all 0.3s ease;
 				transform: translateY(-50%);
 				background-color: $blue;
+
 				&::before,
 				&::after {
 					position: absolute;
@@ -88,6 +93,7 @@
 			}
 		}
 	}
+
 	.right .home-page {
 		position: absolute;
 		top: 50%;
@@ -97,18 +103,18 @@
 		transition: all 0.3s ease;
 		border: 5px solid transparent;
 		transform: translateY(-50%);
-		&:hover {
-			border-color: black;
-			i {
-				transform: scale(1.15);
-			}
-		}
 
 		i {
 			padding: 0.7rem;
 			position: relative;
 			font-size: 4rem;
 			transition: all 0.3s ease;
+		}
+		&:hover {
+			border-color: black;
+			i {
+				transform: scale(1.15);
+			}
 		}
 	}
 
@@ -122,6 +128,7 @@
 		padding: 10px;
 		width: 450px;
 		flex: 2;
+
 		&::after {
 			bottom: 0;
 			left: 50%;
@@ -134,6 +141,7 @@
 			background-color: $blue;
 			transition: width 0.15s ease, height 0.15s 0.15s ease;
 		}
+
 		&:hover {
 			&,
 			a {
@@ -160,6 +168,7 @@
 	flex-direction: column;
 	justify-content: center;
 	font-size: $text-lv4;
+
 	.nav-bar {
 		height: calc(100vh - #{$header-height});
 		transform: translateX(-120%);
@@ -169,6 +178,7 @@
 		width: 30vw;
 		z-index: 10;
 		left: 0;
+
 		&__container {
 			height: 100%;
 			display: flex;
@@ -187,6 +197,7 @@
 				transition: all 0.3s ease;
 				border: 5px solid rgb(142, 142, 243);
 				background: $blue;
+
 				&.active,
 				&:hover {
 					background: rgb(142, 142, 243);
@@ -196,6 +207,7 @@
 			}
 		}
 	}
+
 	.content {
 		margin: $tab-1;
 		width: 95%;
@@ -212,6 +224,7 @@
 				text-align: center;
 				font-size: $text-lv2;
 			}
+
 			& > .container {
 				display: flex;
 				flex-wrap: wrap;
@@ -228,11 +241,6 @@
 						height: 400px;
 						width: 385px;
 						text-align: center;
-						&:hover {
-							& > .container {
-								transform: rotateY(180deg);
-							}
-						}
 
 						& > .container {
 							position: absolute;
@@ -242,6 +250,11 @@
 							bottom: 0;
 							transition: transform 0.6s;
 							transform-style: preserve-3d;
+						}
+						&:hover {
+							& > .container {
+								transform: rotateY(180deg);
+							}
 						}
 
 						.front,
@@ -263,6 +276,7 @@
 							color: white;
 						}
 					}
+
 					.info {
 						position: relative;
 						height: 100%;
@@ -270,16 +284,12 @@
 						align-items: center;
 						flex-direction: column;
 						justify-content: center;
+
 						.preview {
 							font-weight: bold;
 							position: relative;
 							transition: all 0.3s ease-out;
-							&:hover {
-								color: rgb(18, 26, 102);
-								&::after {
-									transform: scaleX(1);
-								}
-							}
+
 							&::after {
 								background-color: rgb(18, 26, 102);
 								position: absolute;
@@ -292,8 +302,15 @@
 								transform-origin: center;
 								transition: all 0.3s ease-out;
 							}
+							&:hover {
+								color: rgb(18, 26, 102);
+								&::after {
+									transform: scaleX(1);
+								}
+							}
 						}
 					}
+
 					.howto {
 						border-radius: 3.5rem;
 						margin: 1.5rem auto;
@@ -306,12 +323,7 @@
 						text-align: center;
 						transition: all 0.3s ease;
 						background-color: $blue;
-						&:hover {
-							transform: translateY(0.8rem);
-							&::after {
-								transform: skewY(-20deg) translateY(15rem);
-							}
-						}
+
 						&::after {
 							position: absolute;
 							content: '';
@@ -324,14 +336,22 @@
 							transform: skewY(-20deg) translateY(-15rem);
 							background-color: rgba(255, 255, 255, 0.424);
 						}
+						&:hover {
+							transform: translateY(0.8rem);
+							&::after {
+								transform: skewY(-20deg) translateY(15rem);
+							}
+						}
 					}
 				}
 			}
 		}
+
 		& > .battle-info {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
+
 			& > .battle-info-item {
 				border-radius: 1.7rem;
 				border: 7px solid transparent;
@@ -340,6 +360,7 @@
 				cursor: pointer;
 				padding: 2.2rem;
 				margin: 1.2rem;
+
 				&:hover {
 					border-color: black;
 				}
@@ -357,11 +378,13 @@
 	transform: translateX(0);
 }
 
-.onShow {
-	display: block;
-}
-.onHide {
-	display: none;
+.on {
+	&Show {
+		display: block;
+	}
+	&Hide {
+		display: none;
+	}
 }
 
 .modal-box {
@@ -396,6 +419,7 @@
 		font-weight: bold;
 		text-align: center;
 	}
+
 	.content {
 		font-size: 2.4rem;
 		padding: 0.5rem;
@@ -413,6 +437,7 @@
 		font-size: 6vmin;
 		width: calc(40vmin + 100px);
 	}
+
 	.main .nav-bar {
 		width: 100%;
 	}

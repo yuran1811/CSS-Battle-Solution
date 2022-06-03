@@ -6,17 +6,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const files = fs.readdirSync(__dirname);
 const htmlFiles = files.filter((_, idx) => extname(_) === '.html');
 
-const data = htmlFiles.map((_, id) => {
+const data = htmlFiles.map((_) => {
 	const filePath = resolve(__dirname, _);
 	const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
 
 	const getFileName = (file) => {
-		const rawName = file.replace('.html', '').split('_')[1];
+		const fileName = file.replace('.html', '');
+		const rawName = fileName.split('_');
 		let name = '';
 
-		for (let i of rawName) name += i.toUpperCase() === i ? ` ${i}` : i;
+		for (let i of rawName[1]) name += i.toUpperCase() === i ? ` ${i}` : i;
 
-		return name.trim();
+		return { id: +rawName[0], name: name.trim() };
 	};
 	const standardizeData = (data) => {
 		data = data.replace(/[<]/g, '&lt;');
@@ -25,9 +26,11 @@ const data = htmlFiles.map((_, id) => {
 		return data;
 	};
 
+	const { id, name } = getFileName(_);
+
 	return {
-		id: id + 1,
-		name: getFileName(_),
+		id,
+		name,
 		data: standardizeData(fileContent),
 	};
 });

@@ -203,31 +203,14 @@ const howtoData = [
 	{
 		id: 2,
 		name: 'Carrom Guide',
-		data: `<div>
-	<div class="item"></div>
-</div>
-<style>
-	div {
-		background: #62374e;
-		position: fixed;
-		height: 300;
-		width: 400;
-		left: 0;
-		top: 0
-	}
-	div.item {
-		background: #fdc57b;
-		position: fixed;
-		height: 50;
-		width: 50;
-		left: 42;
-		top: 42;
-		box-shadow:
-			0 150px 0 0 #fdc57b,
-			250px 0 0 0 #fdc57b,
-			250px 150px 0 0 #fdc57b
-	}
-</style>`,
+		data: `div {
+	background: #62374e;
+	position: fixed;
+	height: 300;
+	width: 400;
+	left: 0;
+	top: 0
+}`,
 	},
 	{
 		id: 3,
@@ -739,8 +722,7 @@ const howtoBtnHandle = () => {
 			const id = e.target.closest('.card').dataset.id;
 			modalBox.classList.add('active');
 			modalBoxTitle.innerText = howtoData[id].name;
-			modalBoxContent.innerHTML = `
-			<pre class="language-css"><code class="language-css">p { color: red }</code></pre>`;
+			modalBoxContent.innerHTML = '';
 		};
 	});
 };
@@ -776,6 +758,11 @@ const getContentHTML = () => {
 			: contentData[battle].map(
 					(item) => `
 				<div class="card" data-aos="fade-up" data-id="${item.id}">
+					<div class="card__data" style="">
+						<pre class="language-css">
+							<code class="language-css">${howtoData[item.id].data}</code>
+						</pre>
+					</div>
 					<div class="card__image">
 						<div class="container">
 							<div class="front">
@@ -853,3 +840,5 @@ document.body.onclick = () => {
 	navBar.classList.remove('active');
 };
 document.body.onscroll = () => header.classList.toggle('mini', scrollY >= 80);
+
+require('./prism.js');

@@ -1,0 +1,9 @@
+{
+	"name": "css-battle-solution-generate",
+	"main": "generate.js",
+	"scripts": {
+		"start": "node generate.js"
+	},
+	"author": "yuran1811",
+	"license": "MIT"
+}

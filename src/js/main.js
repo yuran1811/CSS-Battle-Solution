@@ -3,10 +3,10 @@ const $$ = document.querySelectorAll.bind(document);
 
 (async () => {
 	let howtoData;
-
 	try {
 		const resp = await fetch('howToData.json');
 		howtoData = await resp.json();
+		howtoData.sort((a, b) => a.id - b.id);
 	} catch (e) {
 		console.log(e);
 		howtoData = [
@@ -518,7 +518,6 @@ const $$ = document.querySelectorAll.bind(document);
 		];
 	}
 
-	// Main Handle
 	const contentData = {
 		battle1: [
 			{
@@ -738,18 +737,18 @@ const $$ = document.querySelectorAll.bind(document);
 		<div class="battle-info">
 		${battles
 			.map(
-				(item, index) => `
-				<div class="battle-info-item" data-aos="zoom-out" data-aos-duration="600" >
-					<span class="name"> #${index + 1} - ${item.name}</span>
-					<p class="desc">There are total ${item.target} targets</p>
-				</div>`
+				(_, idx) => `
+			<div class="battle-info-item" data-aos="zoom-out" data-aos-duration="600" >
+				<span class="name"> #${idx + 1} - ${_.name}</span>
+				<p class="desc">There are total ${_.target} targets</p>
+			</div>`
 			)
 			.join('')}
 		</div>`;
 
-		$$('.battle-info-item').forEach((item, index) => {
-			item.onclick = () => {
-				content.innerHTML = listContentHTML[index];
+		$$('.battle-info-item').forEach((_, idx) => {
+			_.onclick = () => {
+				content.innerHTML = listContentHTML[idx];
 				scrollTo(0, 0);
 				howtoBtnHandle();
 			};
@@ -758,7 +757,7 @@ const $$ = document.querySelectorAll.bind(document);
 		scrollTo(0, 0);
 	};
 	const getContentHTML = () => {
-		let contentArr = [];
+		const contentArr = [];
 		for (let battle in contentData) {
 			const battleCardsHTML = !contentData[battle].length
 				? ['Nothing']
@@ -792,12 +791,10 @@ const $$ = document.querySelectorAll.bind(document);
 				  );
 			const index = +battle.replace('battle', '') - 1;
 			const battleSectionHTML = `
-		<section class="${battle}">
-			<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
-			<div class="container">
-				${battleCardsHTML.join('')}
-			</div>
-		</section>`;
+			<section class="${battle}">
+				<h2 class="title">#${index + 1} - ${battles[index].name}</h2>
+				<div class="container">${battleCardsHTML.join('')}</div>
+			</section>`;
 			contentArr.push(battleSectionHTML);
 		}
 		return contentArr;

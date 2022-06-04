@@ -127,5 +127,4 @@ const navCpn = `
 		<div class="content"></div>
 	</div>`;
 
-const bodyContent = document.body.innerHTML;
 document.body.innerHTML = `${modalBoxCpn} ${headerCpn} ${navCpn} ${document.body.innerHTML}`;

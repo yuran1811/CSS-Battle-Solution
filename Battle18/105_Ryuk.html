@@ -1,0 +1,99 @@
+<div class="a">
+  <div class="b">
+    <div class="b_a">
+      <div class="b_b"></div>
+    </div>
+  </div>
+  <div class="b b2">
+    <div class="b_a">
+      <div class="b_b"></div>
+    </div>
+  </div>
+</div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .a {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #bac7ce;
+    }
+    .a::before {
+      content: "";
+      position: absolute;
+      margin: auto;
+      top: -89;
+      left: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: #475862;
+      transform: rotate(45deg);
+    }
+
+    .b {
+      width: 120px;
+      height: 120px;
+      position: fixed;
+      bottom: 50px;
+      left: 30px;
+      background: #000000;
+      border-radius: 0 50% 0 50%;
+      transform: rotate(-15deg);
+      overflow: hidden;
+    }
+    .b2 {
+      left: unset;
+      right: 30px;
+      transform: rotate(-75deg);
+    }
+
+    .b_a {
+      content: "";
+      width: 120px;
+      height: 120px;
+      background: #5a6042;
+      border: 10px solid #000000;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .b_b {
+      width: 40px;
+      height: 40px;
+      background: #4e2b24;
+      border: 6px solid #000000;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .b_a::after {
+      content: "";
+      position: absolute;
+      width: 100;
+      height: 100;
+      top: 14;
+      left: -3.5;
+      border-radius: 50%;
+      background: #868a64;
+      z-index: -1;
+    }
+    .b2 .b_a::after {
+      top: 3.6;
+      left: -14;
+    }
+  </style>
+</div>

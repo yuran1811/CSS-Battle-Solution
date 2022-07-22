@@ -35,33 +35,33 @@ $green: rgb(28, 156, 77);
 $blue: rgb(20, 51, 97);
 
 * {
-	-webkit-tap-highlight-color: transparent;
-	box-sizing: border-box;
-	user-select: none;
-	padding: 0;
-	margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  user-select: none;
+  padding: 0;
+  margin: 0;
 
-	&:not(i) {
-		font-family: 'Oswald', sans-serif !important;
-	}
-	&::-webkit-scrollbar {
-		width: 0;
-	}
+  &:not(i) {
+    font-family: "Oswald", sans-serif !important;
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 a {
-	text-decoration: none;
-	&:link,
-	&:visited,
-	&:hover,
-	&:active,
-	&:focus {
-		color: unset;
-	}
+  text-decoration: none;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: unset;
+  }
 }
 
 h1,
@@ -70,10 +70,10 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: $text-lv9;
+  font-size: $text-lv9;
 }
 
 ul {
-	list-style-type: none;
-	display: flex;
+  list-style-type: none;
+  display: flex;
 }

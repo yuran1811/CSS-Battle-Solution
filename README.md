@@ -1,4 +1,25 @@
-# CSS Battle Solutions
+<h1 align="center">CSS Battle Solution</h1>
+<p align="center" style="font-size:16px"><strong>My CSSBattle Solutions</strong></p>
+<p align="center">  
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
+</p>
+
+<p align="center">
+  <img alt="Stars" src="https://badgen.net/github/stars/yuran1811/CSS-Battle-Solution">
+  <img alt="Forks" src="https://badgen.net/github/forks/yuran1811/CSS-Battle-Solution">
+  <img alt="Issues" src="https://badgen.net/github/issues/yuran1811/CSS-Battle-Solution">
+  <img alt="Commits" src="https://badgen.net/github/commits/yuran1811/CSS-Battle-Solution">
+</p>
+
+<div align="center"><a href="" target="_blank">Live Demo</a></div>
+
+## Screenshots
+
+![](./public/screenshots/home.png)
+![](./public/screenshots/menu.png)
+![](./public/screenshots/detail.png)
+
+## Solutions
 
 ### Battle 1
 
